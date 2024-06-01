@@ -34,14 +34,17 @@ namespace LLM.Containers.Factories
 
             return instance;
         }
-
-        public virtual async UniTask<MonoContainer> Get<TContainer>()
+        
+        public virtual async UniTask<MonoContainer> Get<TContainer>(string implicitContainerName = "")
             where TContainer : MonoContainer
         {
             string containerName = typeof(TContainer).Name;
             containerName = System.Text.RegularExpressions.Regex.Replace(containerName, "((?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z]))", " $1").Trim();
 
-            string prefabPath = $"{folder}/{containerName}";
+            string prefabPath = implicitContainerName.Length <= 0
+                ? $"{folder}/{containerName}"
+                : $"{folder}/{implicitContainerName}";
+            
             var prefab = await Resources.LoadAsync<MonoContainer>(prefabPath);
             if (prefab == null)
             {
