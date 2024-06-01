@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using LLM.Containers.Data;
 
-namespace LLM.Services.Containers
+namespace LLM.Containers
 {
 
     public class MonoContainer : MonoBehaviour, IMonoContainer

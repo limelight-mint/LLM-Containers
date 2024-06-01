@@ -1,9 +1,9 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using LLM.Data.Loaders;
-using LLM.Data.Factories;
+using LLM.Containers.Data;
+using LLM.Containers.Factories;
 
-namespace LLM.Services.Containers
+namespace LLM.Containers.Loaders
 {
 
     public class MonoContainerLoader : IMonoResourceLoader

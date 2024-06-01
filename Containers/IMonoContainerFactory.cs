@@ -1,7 +1,8 @@
 using System;
 using Cysharp.Threading.Tasks;
+using LLM.Containers.Data;
 
-namespace LLM.Services.Containers
+namespace LLM.Containers
 {
     public interface IMonoContainerFactory
     {

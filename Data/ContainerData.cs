@@ -1,4 +1,4 @@
-namespace LLM.Services.Containers
+namespace LLM.Containers.Data
 {
 
     public class ContainerData

@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
-using LLM.Services.Containers;
+using LLM.Containers.Data;
 
-namespace LLM.Data.Loaders
+namespace LLM.Containers.Loaders
 {
     public interface IMonoResourceLoader
     {

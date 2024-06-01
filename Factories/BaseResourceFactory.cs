@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using LLM.Services.Containers;
+using LLM.Containers.Data;
 
-namespace LLM.Data.Factories
+namespace LLM.Containers.Factories
 {
 
     public class BaseResourceFactory : IMonoContainerFactory
