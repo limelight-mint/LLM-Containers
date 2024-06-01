@@ -8,11 +8,11 @@ namespace LLM.Containers
     {
         public event Action<MonoContainer> OnInstanceCreated;
 
-        public UniTask<T> CreateInstance<T>()
-            where T : MonoContainer;
+        public UniTask<TContainer> CreateInstance<TContainer>()
+            where TContainer : MonoContainer;
 
-        public UniTask<T> CreateInstance<T, Y>(Y data)
-            where T : MonoContainer
-            where Y : ContainerData;
+        public UniTask<TContainer> CreateInstance<TContainer, YContainerData>(YContainerData data)
+            where TContainer : MonoContainer
+            where YContainerData : ContainerData;
     }
 }

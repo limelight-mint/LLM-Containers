@@ -15,17 +15,17 @@ namespace LLM.Containers.Loaders
 
         public IMonoContainerFactory Factory { get; }
 
-        public virtual async UniTask<T> LoadContainer<T>()
-            where T : MonoContainer
+        public virtual async UniTask<TContainer> LoadContainer<TContainer>()
+            where TContainer : MonoContainer
         {
-            return await Factory.CreateInstance<T>();
+            return await Factory.CreateInstance<TContainer>();
         }
 
-        public virtual async UniTask<T> LoadContainer<T,Y>(Y data)
-            where T : MonoContainer
-            where Y : ContainerData
+        public virtual async UniTask<TContainer> LoadContainer<TContainer,YContainerData>(YContainerData data)
+            where TContainer : MonoContainer
+            where YContainerData : ContainerData
         {
-            return await Factory.CreateInstance<T, Y>(data);
+            return await Factory.CreateInstance<TContainer, YContainerData>(data);
         }
     }
 }

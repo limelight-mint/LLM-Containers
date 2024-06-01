@@ -7,11 +7,11 @@ namespace LLM.Containers.Loaders
     {
         public IMonoContainerFactory Factory { get; }
 
-        public UniTask<T> LoadContainer<T>()
-            where T : MonoContainer;
+        public UniTask<TContainer> LoadContainer<TContainer>()
+            where TContainer : MonoContainer;
 
-        public UniTask<T> LoadContainer<T,Y>(Y data)
-            where T : MonoContainer
-            where Y : ContainerData;
+        public UniTask<TContainer> LoadContainer<TContainer,YContainerData>(YContainerData data)
+            where TContainer : MonoContainer
+            where YContainerData : ContainerData;
     }
 }

@@ -19,26 +19,26 @@ namespace LLM.Containers.Factories
             this.parent = parent;
         }
 
-        public virtual async UniTask<T> CreateInstance<T>() 
-            where T : MonoContainer
+        public virtual async UniTask<TContainer> CreateInstance<TContainer>() 
+            where TContainer : MonoContainer
         {
-            return (T)await Get<T>();
+            return (TContainer)await Get<TContainer>();
         }
 
-        public virtual async UniTask<T> CreateInstance<T, Y>(Y data)
-            where T : MonoContainer
-            where Y : ContainerData
+        public virtual async UniTask<TContainer> CreateInstance<TContainer, YContainerData>(YContainerData data)
+            where TContainer : MonoContainer
+            where YContainerData : ContainerData
         {
-            T instance = (T)await Get<T>();
+            TContainer instance = (TContainer)await Get<TContainer>();
             instance.Data = data;
 
             return instance;
         }
 
-        public virtual async UniTask<MonoContainer> Get<T>()
-            where T : MonoContainer
+        public virtual async UniTask<MonoContainer> Get<TContainer>()
+            where TContainer : MonoContainer
         {
-            string containerName = typeof(T).Name;
+            string containerName = typeof(TContainer).Name;
             containerName = System.Text.RegularExpressions.Regex.Replace(containerName, "((?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z]))", " $1").Trim();
 
             string prefabPath = $"{folder}/{containerName}";
@@ -48,7 +48,7 @@ namespace LLM.Containers.Factories
                 Debug.LogError($"Container {containerName} does not exist at Resources/{prefabPath}");
             }
 
-            var container = (T)GameObject.Instantiate(prefab, parent);
+            var container = (TContainer)GameObject.Instantiate(prefab, parent);
             return container;
         }
     }
