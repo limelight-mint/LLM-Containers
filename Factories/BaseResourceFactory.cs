@@ -24,6 +24,8 @@ namespace LLM.Containers.Factories
         {
             TContainer container = (TContainer)await Get<TContainer>();
             container.Created();
+            
+            OnInstanceCreated?.Invoke(container);
             return container;
         }
 
@@ -31,11 +33,12 @@ namespace LLM.Containers.Factories
             where TContainer : MonoContainer
             where YContainerData : ContainerData
         {
-            TContainer instance = (TContainer)await Get<TContainer>();
-            instance.Data = data;
-            instance.Created();
+            TContainer container = (TContainer)await Get<TContainer>();
+            container.Data = data;
+            container.Created();
 
-            return instance;
+            OnInstanceCreated?.Invoke(container);
+            return container;
         }
         
         public virtual async UniTask<MonoContainer> Get<TContainer>(string implicitContainerName = "")
