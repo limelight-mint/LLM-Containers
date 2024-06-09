@@ -22,7 +22,9 @@ namespace LLM.Containers.Factories
         public virtual async UniTask<TContainer> CreateInstance<TContainer>() 
             where TContainer : MonoContainer
         {
-            return (TContainer)await Get<TContainer>();
+            TContainer container = (TContainer)await Get<TContainer>();
+            container.Created();
+            return container;
         }
 
         public virtual async UniTask<TContainer> CreateInstance<TContainer, YContainerData>(YContainerData data)
@@ -31,6 +33,7 @@ namespace LLM.Containers.Factories
         {
             TContainer instance = (TContainer)await Get<TContainer>();
             instance.Data = data;
+            instance.Created();
 
             return instance;
         }
