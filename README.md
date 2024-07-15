@@ -18,4 +18,4 @@ var container = await _popupsFactory
 .CreateInstance<FriendInvitePopup, InviteData>(new InviteData(_friend, _unixTimeRequestCreated));
 ```
 
-> You can pass any data to a container, just create class and inherit `ContainerData` (for example `public class LoginData : ContainerData`), or even pass a `null` or `new ContainerData()` if u dont need it for some reason
+> Remark: You can create new factories and override creation methods and you can pass any data to a container, just create class and inherit `ContainerData` (for example `public class LoginData : ContainerData`), or even pass a `null` or `new ContainerData()` if u dont need it for some reason
