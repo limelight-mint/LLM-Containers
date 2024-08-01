@@ -2,10 +2,12 @@
 <sub>Yes, IT IS better and faster than Unity coroutines</sub>
 
 ### Ok but how to actually use it?
-> Required <a href="https://github.com/Cysharp/UniTask">UniTask</a> itself, so first-thing-first install a <a href="https://github.com/Cysharp/UniTask?tab=readme-ov-file#install-via-git-url">UniTask from this link</a>.
+> Required <a href="https://github.com/Cysharp/UniTask">UniTask</a> itself, so first-thing-first install a .unitypackage <a href="https://github.com/Cysharp/UniTask/releases">from this link</a>.
 > Can be used for default .NET classes if you install UniTask as NuGet package. Also feel free to change whatever you want or collab.
 
 Simple example where we have our popups inside `Popups` folder (`Assets/Resources/Popups/`), and we need to get our prefab which is `MonoContainer` inherited and called `Friend Invite Popup`:
+
+![Popup Prefab screenshot](https://bunbun.cloud/assets/images/git/baseFactoryPrefab.png)
 
 First create a factory, our base one or your custom one (you can inherit and override creation process for your needs):
 ```
