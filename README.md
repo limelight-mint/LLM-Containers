@@ -7,7 +7,7 @@
 
 Simple example where we have our popups inside `Popups` folder (`Assets/Resources/Popups/`), and we need to get our prefab which is `MonoContainer` inherited and called `Friend Invite Popup`:
 
-![Popup Prefab screenshot](https://bunbun.cloud/assets/images/git/baseFactoryPrefab.png)
+![Popup Prefab screenshot](https://eepywitches.cloud/assets/images/git/baseFactoryPrefab.png)
 
 First create a factory, our base one or your custom one (you can inherit and override creation process for your needs):
 ```
